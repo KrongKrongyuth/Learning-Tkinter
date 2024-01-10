@@ -24,7 +24,7 @@ temp = temp_convert()
 # Window --> Create Window
 # window = tk.Tk()
 window = ttk.Window(themename = "journal")      # Using window function from ttkbootstrap (We can use the ready-made theme from ttkbootstrap)
-window.title("Demo Tkinter")                    # Change application tile
+window.title("Temperature Converter")           # Change application tile
 window.geometry("500x200")                      # Config the window size Syntax -> window.geometry("WidthxHeight")
 
 # Widget(Title)
