@@ -2,6 +2,7 @@ import tkinter as tk        # Give the basic logic
 # from tkinter import ttk   # Give the basic widget
 import ttkbootstrap as ttk  # Give the basic widget more than normal ttk
 from typing import Final    # Use for create permanent variable
+import numpy as np
 
 class temp_convert() :
 
@@ -11,12 +12,12 @@ class temp_convert() :
         # print(entry.get())        # entry.get() will get the value in entry box --> NOT COMMONLY USE
         # print(entry_int.get())    # get the data from entey_int instead
         cel_temp = entry_int.get()
-        fah_temp = (9/5 * cel_temp) + 32
+        fah_temp = np.round((9/5 * cel_temp) + 32,2)
         return output_string.set(str(fah_temp) + "  Fahrenheit")
 
     def convert_to_kel(self) :
         cel_temp = entry_int.get()
-        kel_temp = cel_temp + self.kelvin_constant
+        kel_temp = np.round(cel_temp + self.kelvin_constant, 2)
         return output_string.set(str(kel_temp) + "  Kelvin")
 
 temp = temp_convert()
