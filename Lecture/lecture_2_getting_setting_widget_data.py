@@ -1,5 +1,6 @@
 """
-This is Lecture 2
+This is Lecture 2 
+Gettings and setting widget data
 """
 
 import tkinter as tk
