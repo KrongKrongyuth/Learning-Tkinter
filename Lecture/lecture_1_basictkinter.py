@@ -1,6 +1,7 @@
 """
 This is Lecture 1 : Basic widget in tkinter.
 """
+
 import tkinter as tk
 from tkinter import ttk
 
