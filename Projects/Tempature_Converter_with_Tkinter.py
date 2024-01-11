@@ -4,7 +4,7 @@ import ttkbootstrap as ttk  # Give the basic widget more than normal ttk
 from typing import Final    # Use for create permanent variable
 import numpy as np
 
-class temp_convert() :
+class Temp_convert() :
 
     kelvin_constant: Final[float] = 273.15  # Create permanent
 
@@ -20,7 +20,7 @@ class temp_convert() :
         kel_temp = np.round(cel_temp + self.kelvin_constant, 2)
         return output_string.set(str(kel_temp) + "  Kelvin")
 
-temp = temp_convert()
+temp = Temp_convert()
 
 # Window --> Create Window
 # window = tk.Tk()
