@@ -77,12 +77,14 @@ def draw(event):
     This function use for drawing on canvas.
     """
     x, y = event.x, event.y
-    return x,y
-    # excer_canvas.create_oval()
+    excer_canvas.create_oval((x - bruch_size/2, y - bruch_size/2, x + bruch_size/2, y + bruch_size/2),
+                             fill = "Black",
+                             width = 0)
 
+bruch_size = 10
 excer_canvas = tk.Canvas(widget_frame,
                          bg = "white")
-excer_canvas.bind("<Button-1>", draw)
+excer_canvas.bind("<Button-1>", func = draw)
 
 label_1.pack()
 entry_1.pack()
