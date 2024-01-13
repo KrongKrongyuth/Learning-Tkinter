@@ -77,14 +77,24 @@ def draw(event):
     This function use for drawing on canvas.
     """
     x, y = event.x, event.y
-    excer_canvas.create_oval((x - bruch_size/2, y - bruch_size/2, x + bruch_size/2, y + bruch_size/2),
+    circle = (x - BRUSH_SIZE/2, y - BRUSH_SIZE/2, x + BRUSH_SIZE/2, y + BRUSH_SIZE/2)
+    excer_canvas.create_oval(circle,
                              fill = "Black",
                              width = 0)
+def brush_size_config(event):
+    """
+    This function use for config size of brush
+    """
+    global BRUSH_SIZE
+    print(BRUSH_SIZE, event.delta)
+    BRUSH_SIZE -= event.delta
+    BRUSH_SIZE = max(0,min(BRUSH_SIZE, 50))
 
-bruch_size = 10
+BRUSH_SIZE = 5
 excer_canvas = tk.Canvas(widget_frame,
                          bg = "white")
 excer_canvas.bind("<Button-1>", func = draw)
+excer_canvas.bind("<MouseWheel>", func = brush_size_config)
 
 label_1.pack()
 entry_1.pack()
