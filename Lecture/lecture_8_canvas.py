@@ -72,15 +72,36 @@ button_1 = ttk.Button(widget_frame,
 
 # Excercise
 # Use event binding to create a basic paint app
-def draw(event):
+def release_location(event_release):
+    """
+    This function use for get the release location
+    """
+    global HOLD
+    HOLD = False
+    print(event_release, HOLD)
+def draw(event_press):
     """
     This function use for drawing on canvas.
     """
-    x, y = event.x, event.y
-    circle = (x - BRUSH_SIZE/2, y - BRUSH_SIZE/2, x + BRUSH_SIZE/2, y + BRUSH_SIZE/2)
-    excer_canvas.create_oval(circle,
-                             fill = "Black",
-                             width = 0)
+    global HOLD
+    HOLD = True
+    print(event_press, HOLD)
+    excer_canvas.bind("<Motion>", hold)
+    excer_canvas.bind("<ButtonRelease>", release_location)
+def hold(event_hold):
+    """
+    Hold the mouse
+    """
+    print(event_hold, HOLD)
+    if HOLD:
+        x_hold, y_hold = event_hold.x, event_hold.y
+        circle =    (x_hold - BRUSH_SIZE/2,
+                    y_hold - BRUSH_SIZE/2,
+                    x_hold + BRUSH_SIZE/2,
+                    y_hold + BRUSH_SIZE/2)
+        excer_canvas.create_oval(circle,
+                                fill = "Black",
+                                width = 0)
 def brush_size_config(event):
     """
     This function use for config size of brush
