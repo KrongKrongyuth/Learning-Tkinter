@@ -24,7 +24,7 @@ label_2 = tk.Label(window,
 # label_1.lift()  # .lift() --> elevate the widget to top layer ** OR YOU CAN USE .tkraise()
 # label_2.lower() # .lower() --> elevate the widget to bottom layer
 
-button_1 = ttk.Button(window, text = "raise label 1", command = lambda: label_1.tkraise())
+button_1 = ttk.Button(window, text = "raise label 1", command = lambda: label_1.tkraise(aboveThis = label_2))
 button_2 = ttk.Button(window, text = "raise label 2", command = lambda: label_2.tkraise())
 
 # Layout
