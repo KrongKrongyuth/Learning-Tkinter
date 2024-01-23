@@ -141,4 +141,4 @@ class SizeNotifier:
             self.size_dict[self.current_min_size]()     # Call the method right here.
 
 if __name__ == "__main__":
-    App("Lecture 12 Responsive Layout", (400,300,750,250))
+        App("Lecture 12 Responsive Layout", (400,300,750,250))
