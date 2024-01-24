@@ -63,9 +63,9 @@ class ListFrame(ttk.Frame):
             self.create_item(index, item).pack(expand = True, fill = "both", pady = 4, padx = 10)
         
         # Scrollbar
-        scrollbar_y = ttk.Scrollbar(self.frame, orient = "vertical", command = self.canvas.yview)
-        self.canvas.configure(yscrollcommand = scrollbar_y.set)
-        scrollbar_y.place(relx = 1, rely = 0, relheight = 1, anchor = "ne")
+        self.scrollbar_y = ttk.Scrollbar(self.frame, orient = "vertical", command = self.canvas.yview)
+        self.canvas.configure(yscrollcommand = self.scrollbar_y.set)
+        self.scrollbar_y.place(relx = 1, rely = 0, relheight = 1, anchor = "ne")
 
         # self.canvas.create_window((0,0),
         #                         window = self.frame,
@@ -82,9 +82,11 @@ class ListFrame(ttk.Frame):
         if self.list_height >= self.winfo_height():
             height = self.list_height
             self.canvas.bind_all("<MouseWheel>", lambda event: self.canvas.yview_scroll(-(event.delta), "units"))
+            self.scrollbar_y.place(relx = 1, rely = 0, relheight = 1, anchor = "ne")
         else:
             height = self.winfo_height()
             self.canvas.unbind_all("<MouseWheel>")
+            self.scrollbar_y.place_forget()
 
         self.canvas.create_window(
             (0,0),
